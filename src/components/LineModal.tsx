@@ -27,10 +27,17 @@ const LineModal = ({
         {selectedTubeLine?.lineStatuses[0].statusSeverity < 10 && (
           <p>Reason: {selectedTubeLine?.lineStatuses[0].reason}</p>
         )}
-        <p>
-          From: {selectedTubeLine?.lineStatuses[0].validityPeriods[0].fromDate}
-        </p>
-        <p>To: {selectedTubeLine?.lineStatuses[0].validityPeriods[0].toDate}</p>
+        {selectedTubeLine?.lineStatuses[0]?.validityPeriods[0] && (
+          <p>
+            From:{" "}
+            {selectedTubeLine?.lineStatuses[0]?.validityPeriods[0].fromDate}
+          </p>
+        )}
+        {selectedTubeLine?.lineStatuses[0]?.validityPeriods[0] && (
+          <p>
+            To: {selectedTubeLine?.lineStatuses[0]?.validityPeriods[0].toDate}
+          </p>
+        )}
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={() => setShowModal(false)}>
